@@ -18,6 +18,7 @@ To despray a file from logical files into landing zone with an ECL script, you m
 2. Open your ECL IDE or VSCode (make sure you have the ECL extension for VSCode users). Use the ECL library fileservice to write a script to despray the logical file into the landing zone.
 
 Here's a snippet of the ECL script I wrote:
+
 <img width="749" alt="Screenshot 2024-07-23 at 1 40 43 PM" src="https://github.com/user-attachments/assets/cd0bbc25-c36e-4e2c-a5e8-75f5e5a97fea">
 
 ### Requirements before working with Google Cloud Platform ###
