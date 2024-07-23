@@ -44,5 +44,32 @@ For this data transfer service, you first must have a dataset and table in BigQu
 1. Go into your BigQuery project and click into BigQuery Studio.
 2. On the top right next to Explorer, there should be an Add button. Click on Add.
 3. Choose Local File (Upload a local file)
-4. 
+4. Select create table from Upload and select your despray file from your Finder or Files Explorer (you may change the file format to csv if needed).
+5. If you don't already have a dataset, select create dataset and create one. If you already have one, select it and type a table name on the line below.
+6. For schema, you can either choose auto-detect or create one yourself. I recommend choosing auto-detect unless you want a different schema than what your file has.
+7. Everything else can be left as default and click create table.
+
+To get a better idea of where everything is laid out, here's a screenshot of the create table layout:
+
+<img width="637" alt="Screenshot 2024-07-23 at 3 24 04 PM" src="https://github.com/user-attachments/assets/eb521422-9985-411a-a586-859836950c19">
+
+8. Now that you have a dataset and table created, click on BigQuery and choose Data Transfers.
+9. Click create transfer.
+10. For the source, choose Google Cloud Storage.
+11. Choose your display name and also the schedule you prefer.
+12. For destination settings, choose the dataset and table you just created.
+13. For the Cloud Storage URI, click browse and choose the bucket you uploaded your file into. Choose the folder after the bucket and then click on the file in the folder.
+14. When you click on the file, a Filename line should appear near the bottom above select. Before choosing select, alter the filename slightly. I have attached a screenshot as an example:
+
+<img width="570" alt="Screenshot 2024-07-23 at 3 31 11 PM" src="https://github.com/user-attachments/assets/6346ba36-354b-4450-948a-8f2c10ac1812">
+
+15. Now, click select.
+16. It is optional to check the box that says "Delete source files after transfer", but I recommend checking it. Everything else can be left as default.
+17. Scroll to the bottom and click save. Once you wait for the first data transfer run to be successfully completed, Method 1 of the data transfer is complete.
+
+# Method 2: Pub/Sub Messaging Service
+(create diagram here)
+
+
+
 
