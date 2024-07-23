@@ -21,8 +21,15 @@ Here's a snippet of the ECL script I wrote:
 
 <img width="749" alt="Screenshot 2024-07-23 at 1 40 43 PM" src="https://github.com/user-attachments/assets/cd0bbc25-c36e-4e2c-a5e8-75f5e5a97fea">
 
-### Requirements before working with Google Cloud Platform ###
-* create a new project
-* create table and dataset in bigquery
+### Upload to Google Cloud Storage (manually) ###
+1. Create a new project
+2. Go into Cloud Storage and click on Buckets
+3. Create a new bucket and create a folder inside the bucket
+4. Once inside the folder, click Upload Files and choose the file you desprayed into the landing zone (if you can't find it, try looking under a mydropzone or dropzone folder). After uploading, it should be in the bucket/folder.
 
-
+### Upload to Google Cloud Storage (Java) ###
+Although you can upload your file manually, using java or any language program can allow this process to be much more efficient when you need to upload multiple files.
+1. Create a new project
+2. If you have a bucket and folder, you may skip this step. If not, create a bucket and create a folder inside the bucket.
+3. Now, you can write a program utilizing your bucket name, folder name, file name, and file path. I referenced this sample code provided by Google Cloud when writing my program: https://cloud.google.com/storage/docs/samples/storage-upload-file.
+4. Here's a few snippets from my Java program (you can find the full program 
