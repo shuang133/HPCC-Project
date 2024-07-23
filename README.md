@@ -7,8 +7,11 @@ The goal of this repository is to provide a set of instructions, sample datasets
 * **Google Cloud Platform Account:** A GCP Account needs to be created as you will need to utilize the different warehouses and services provided by Google Cloud Platform such as BigQuery and Pub/Sub.
 # Method 1: BigQuery/Data Transfer Service
 <img width="724" alt="Screenshot 2024-07-22 at 8 48 10 PM" src="https://github.com/user-attachments/assets/e865f2d1-ab1a-4230-88f3-abc07089117e">
-
-
-1. Before working in the Google Cloud Platform side, you first must enter into ECL Watch and despray a file into the landing zone.
-2. Create a (new) project.
+### Steps to Despray (Manually) ###
+1. Enter your ECL Watch. Go to files and then logical files. If you have logical files, you may skip this step. If you don't have any logical files, you need to click on Landing Zones and press Upload. From there, upload a csv file. After it's uploaded, import it to logical files and rename the filename (for organization purposes).
+2. After you have at least 1 file under logical files, click on despray.
 3. 
+### Steps to Despray (ECL Code) ###
+1. Enter your ECL Watch. Go to files and then logical files. If you have logical files, you may skip this step. If you don't have any logical files, you need to click on Landing Zones and press Upload. From there, upload a csv file. After it's uploaded, import it to logical files and rename the filename (for organization purposes).
+2. ECL IDE or VSCode
+
