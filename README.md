@@ -6,7 +6,8 @@ The goal of this repository is to provide a set of instructions, sample datasets
 * **VSCode/ECL IDE:** VSCode/ECL IDE needs to be installed in order to write/run code. It is also a good idea to complete the HPCC Systems Data Tutorial if this is your first time working with HPCC Systems. Data Tutorial: https://cdn.hpccsystems.com/releases/CE-Candidate-9.8.4/docs/EN_US/HPCCDataTutorial_EN_US-9.8.4-1.pdf (VSCode/ECL IDE needed)
 * **Google Cloud Platform Account:** A GCP Account needs to be created as you will need to utilize the different warehouses and services provided by Google Cloud Platform such as BigQuery and Pub/Sub.
 # Method 1: BigQuery/Data Transfer Service
-[Untitled.pdf](https://github.com/user-attachments/files/16341387/Untitled.pdf)
+<img width="724" alt="Screenshot 2024-07-22 at 8 48 10 PM" src="https://github.com/user-attachments/assets/e865f2d1-ab1a-4230-88f3-abc07089117e">
+
 
 1. Before working in the Google Cloud Platform side, you first must enter into ECL Watch and despray a file into the landing zone.
 2. Create a (new) project.
