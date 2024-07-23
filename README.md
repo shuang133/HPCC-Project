@@ -32,4 +32,13 @@ Although you can upload your file manually, using java or any language program c
 1. Create a new project
 2. If you have a bucket and folder, you may skip this step. If not, create a bucket and create a folder inside the bucket.
 3. Now, you can write a program utilizing your bucket name, folder name, file name, and file path. I referenced this sample code provided by Google Cloud when writing my program: https://cloud.google.com/storage/docs/samples/storage-upload-file.
-4. Here's a few snippets from my Java program (you can find the full program 
+
+Here's a few snippets from my Java program (you can find the full program under the GCS_Code folder):
+
+<img width="1095" alt="Screenshot 2024-07-23 at 2 18 23 PM" src="https://github.com/user-attachments/assets/2c08ea8b-182a-4e11-82e0-9f90f9b914a2">
+
+<img width="908" alt="Screenshot 2024-07-23 at 2 18 41 PM" src="https://github.com/user-attachments/assets/df2e758e-e4c7-4ac3-936b-51318e461e53">
+
+### Data Transfer Service to BigQuery ###
+
+
