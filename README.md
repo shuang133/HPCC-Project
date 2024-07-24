@@ -70,6 +70,14 @@ To get a better idea of where everything is laid out, here's a screenshot of the
 # Method 2: Pub/Sub Messaging Service
 <img width="756" alt="Screenshot 2024-07-23 at 10 34 48 PM" src="https://github.com/user-attachments/assets/b75ad998-f449-4c83-be69-4c3d26f1c5e1">
 
+### Transferring Data from Landing Zone ###
+(Not recommeded) 
+This isn't the main path taken when using the Pub/Sub Messaging Service as it is much more tedious than using data from the Roxie server. Briefly mentioning this, the overall process is using the desprayed file data and manually altering it into JSON format so that it follows the schema in Pub/Sub. Since this process takes a long time, especially when transferring multiple rows of data, I won't go into detail.
+
+### Transferring Data from Roxie Server ###
+A quick overview of this method of data transfer...
+(mention the service thingy in detail, show a screenshot of the json data output, explain the creation of the pub/sub parts like topic, schema, subscription, etc, separate heading with the java pub/sub messages)
+(show screenshots of the manually input messages and the java ones)
 
 
 
