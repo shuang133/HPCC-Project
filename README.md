@@ -68,7 +68,10 @@ To get a better idea of where everything is laid out, here's a screenshot of the
 17. Scroll to the bottom and click save. Once you wait for the first data transfer run to be successfully completed, Method 1 of the data transfer is complete.
 
 # Method 2: Pub/Sub Messaging Service
-(create diagram here)
+<img width="756" alt="Screenshot 2024-07-23 at 10 34 48 PM" src="https://github.com/user-attachments/assets/b75ad998-f449-4c83-be69-4c3d26f1c5e1">
+
+
+
 
 
 
