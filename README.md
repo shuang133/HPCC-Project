@@ -71,7 +71,7 @@ To get a better idea of where everything is laid out, here's a screenshot of the
 <img width="756" alt="Screenshot 2024-07-23 at 10 34 48 PM" src="https://github.com/user-attachments/assets/b75ad998-f449-4c83-be69-4c3d26f1c5e1">
 
 ### Transferring Data from Landing Zone ###
-(Not recommeded) 
+(More time-consuming than from Roxie Server) 
 
 This isn't the main path taken when using the Pub/Sub Messaging Service as it is much more tedious than using data from the Roxie server. Briefly mentioning this, the overall process is using the desprayed file data and manually altering it into JSON format so that it follows the schema in Pub/Sub. Since this process takes a long time, especially when transferring multiple rows of data, I won't go into detail.
 
