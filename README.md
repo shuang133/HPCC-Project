@@ -76,7 +76,31 @@ To get a better idea of where everything is laid out, here's a screenshot of the
 This isn't the main path taken when using the Pub/Sub Messaging Service as it is much more tedious than using data from the Roxie server. Briefly mentioning this, the overall process is using the desprayed file data and manually altering it into JSON format so that it follows the schema in Pub/Sub. Since this process takes a long time, especially when transferring multiple rows of data, I won't go into detail.
 
 ### Transferring Data from Roxie Server ###
-A quick overview of this method of data transfer...
+A quick overview of this method is that on the Roxie Server, there is a specific service that can be used to output JSON-formatted data. Since the Pub/Sub messaging service requires the messages to be in JSON format, it is much more efficient to utilize Roxie so that you can copy and past the data instead of rewriting it into JSON format. A more detailed step by step explanation of the entire process is below.
+
+#### Gathering JSON-formatted Data from Roxie Server ####
+1. Click on this link and login with your username and password for your HPCC Systems cluster: http://university-roxie.us-hpccsystems-dev.azure.lnrsg.io:8002/esp/files/Login.html.
+2. Once inside the system, click on the plus sign in front of roxie.
+3. Scroll down and click on "personsfilesearchservicevz".
+4. You may enter any first name or last name you want to retrieve data, but make sure to capitalize every letter. Ex: SMITH
+<img width="1270" alt="Screenshot 2024-07-24 at 5 44 37 PM" src="https://github.com/user-attachments/assets/a11890a2-83c2-44f8-b975-374c88ce450c">
+
+5. Click submit.
+6. A data table should be produced. Below is an example after entering SMITH in the lastname box:
+<img width="1271" alt="Screenshot 2024-07-24 at 5 46 37 PM" src="https://github.com/user-attachments/assets/756eb5a4-cfa5-4d13-ac41-3ff27e05adf9">
+
+7. Click on Links (next to Form). You should see something similar to this:
+<img width="1267" alt="Screenshot 2024-07-24 at 5 48 37 PM" src="https://github.com/user-attachments/assets/d0c3f250-186f-46d9-8127-15f129ef539b">
+
+8. Go down to JSON (Post JSON messages to this URL) and click /WsEcl/json/query/roxie/personsfilesearchservicevz. (for future reference, a faster way to get to that specific site is using this link: http://university-roxie.us-hpccsystems-dev.azure.lnrsg.io:8002/WsEcl/forms/json/query/roxie/personsfilesearchservicevz)
+9. Now enter something for either firstname, lastname, sex, or zip (make sure to put quotes between strings). Then, press send request. Here's an example of what you might see:
+<img width="1273" alt="Screenshot 2024-07-24 at 6 12 21 PM" src="https://github.com/user-attachments/assets/c3b6a36d-2b7a-4184-ad18-202ad8c55000">
+
+You have now retrieved JSON-formatted data from the Roxie Server.
+
+#### Using Pub/Sub Messaging Service ####
+Now you might think that all you need to do is copy the data from roxie into pub/sub, but it's not quite that simple (sorry).
+
 (mention the service thingy in detail, show a screenshot of the json data output, explain the creation of the pub/sub parts like topic, schema, subscription, etc, separate heading with the java pub/sub messages)
 (show screenshots of the manually input messages and the java ones)
 
