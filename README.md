@@ -186,24 +186,12 @@ So, the purpose of this documentation is to provide an effective method that wou
 
 Read more here: https://cloud.google.com/bigquery/docs/query-overview.
 
-*Looker Studio Data Analysis
+* Looker Studio Data Analysis
 
 (food info data)
+
 <img width="600" alt="Screenshot 2024-07-25 at 4 33 26 PM" src="https://github.com/user-attachments/assets/99a5f905-b31c-40b1-adef-a04c13f9e355">
 
 (properties data)
+
 <img width="612" alt="Screenshot 2024-07-25 at 4 37 35 PM" src="https://github.com/user-attachments/assets/8c49215a-8403-42fb-9cf5-db33e29d4002">
-
-
-
-
-
-
-(mention the service thingy in detail, show a screenshot of the json data output, explain the creation of the pub/sub parts like topic, schema, subscription, etc, separate heading with the java pub/sub messages)
-(show screenshots of the manually input messages and the java ones)
-
-
-
-
-
-
