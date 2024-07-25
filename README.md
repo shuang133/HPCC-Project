@@ -40,7 +40,7 @@ Here's a few snippets from my Java program (you can find the full program under 
 <img width="908" alt="Screenshot 2024-07-23 at 2 18 41 PM" src="https://github.com/user-attachments/assets/df2e758e-e4c7-4ac3-936b-51318e461e53">
 
 ### Data Transfer Service to BigQuery ###
-For this data transfer service, you first must have a dataset and table in BigQuery.
+For this data transfer service, you first must have a dataset and table in BigQuery. (Also be sure to enable the APIs needed for this data transfer)
 1. Go into your BigQuery project and click into BigQuery Studio.
 2. On the top right next to Explorer, there should be an Add button. Click on Add.
 3. Choose Local File (Upload a local file)
@@ -101,6 +101,23 @@ You have now retrieved JSON-formatted data from the Roxie Server.
 #### Using Pub/Sub Messaging Service ####
 Now you might think that all you need to do is copy the data from roxie into pub/sub, but it's not quite that simple (sorry).
 
+Before transferring the data through messages, you first need to set up the schema, topic, and subscriptions in Pub/Sub by following these steps:
+
+1. Go into your BigQuery project and type Pub/Sub in the search bar next to your project name.
+2. Click into Pub/Sub.
+
+Your screen should look something like this:
+<img width="1271" alt="Screenshot 2024-07-25 at 2 44 29 PM" src="https://github.com/user-attachments/assets/ea1853e8-51f3-437a-bf48-fe75f4484ac1">
+
+3. Click on schemas and create a schema.
+4. Give your schema a name and keep the schema type default as Avro. For your schema definition, it should match your dataset/table schema.
+
+Here's an example of the schema I created:
+<img width="570" alt="Screenshot 2024-07-25 at 2 50 32 PM" src="https://github.com/user-attachments/assets/b06a06eb-1198-4f34-8e25-01bd48b8c1e5">
+
+5. After you write your schema definition, click create.
+6. Now that you have a schema, go into topics and click create topic.
+7. 
 (mention the service thingy in detail, show a screenshot of the json data output, explain the creation of the pub/sub parts like topic, schema, subscription, etc, separate heading with the java pub/sub messages)
 (show screenshots of the manually input messages and the java ones)
 
