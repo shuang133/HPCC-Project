@@ -192,6 +192,8 @@ Read more here: https://cloud.google.com/bigquery/docs/query-overview.
 
 <img width="600" alt="Screenshot 2024-07-25 at 4 33 26 PM" src="https://github.com/user-attachments/assets/99a5f905-b31c-40b1-adef-a04c13f9e355">
 
+
+
 (properties data)
 
 <img width="612" alt="Screenshot 2024-07-25 at 4 37 35 PM" src="https://github.com/user-attachments/assets/8c49215a-8403-42fb-9cf5-db33e29d4002">
