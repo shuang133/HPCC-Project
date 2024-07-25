@@ -98,13 +98,14 @@ A quick overview of this method is that on the Roxie Server, there is a specific
 
 You have now retrieved JSON-formatted data from the Roxie Server.
 
-#### Using Pub/Sub Messaging Service ####
+### Using Pub/Sub Messaging Service ###
 Now you might think that all you need to do is copy the data from roxie into pub/sub, but it's not quite that simple (sorry).
 
 Before transferring the data through messages, you first need to set up the schema, topic, and subscriptions in Pub/Sub by following these steps:
 
-1. Go into your BigQuery project and type Pub/Sub in the search bar next to your project name.
-2. Click into Pub/Sub.
+1. Go into your BigQuery project and create an empty table under the dataset you created with a schema that matches the data you will use (you should have two tables under that dataset now).
+2. Type Pub/Sub in the search bar next to your project name.
+3. Click into Pub/Sub.
 
 Your screen should look something like this:
 
@@ -143,9 +144,58 @@ Your screen should look similar to this (with less subscriptions):
 
 You have successfully set up the Pub/Sub messaging service.
 
-#### Publish Messages in Pub/Sub (manually) ####
-1. Click into the topic you just created and
-2. 
+### Publish Messages in Pub/Sub (manually) ###
+1. Click into the topic you just created and click on the "Messages" tab.
+2. Click "Publish Message"
+
+Your screen should look similar to this:
+
+<img width="797" alt="Screenshot 2024-07-25 at 3 41 34 PM" src="https://github.com/user-attachments/assets/b660ff17-5145-4f93-a82b-f6bbcf817d42">
+
+3. Copy the JSON-formatted data from the roxie server and paste it in the message body.
+
+Your screen should look similar to this: (you can test out one row at a time first) 
+
+<img width="499" alt="Screenshot 2024-07-25 at 3 53 37 PM" src="https://github.com/user-attachments/assets/148b1ade-6edb-4992-8743-867d400d2182">
+
+4. Click publish.
+5. Now when you check the empty table you created, it should contain the message you just published.
+
+You have now successfully transferred data from HPCC Systems (Roxie server) into BigQuery using the Pub/Sub messaging service.
+
+### Publish Messages in Pub/Sub (Automation using Java) ###
+1. Read over this Pub/Sub guide and reference the sample code to write your own program: https://cloud.google.com/pubsub/docs/publisher. (I used this to help write my Java program)
+2. If you decide to code in Java, here are a few snippets of my program (you can view the entire program under the Pub/Sub folder):
+
+<img width="885" alt="Screenshot 2024-07-25 at 4 04 51 PM" src="https://github.com/user-attachments/assets/4e1f9a95-a310-4d21-9b6f-7ef65c3acca0">
+
+<img width="892" alt="Screenshot 2024-07-25 at 4 05 04 PM" src="https://github.com/user-attachments/assets/a65a0485-cfff-481a-aef2-8219ea41562c">
+
+<img width="907" alt="Screenshot 2024-07-25 at 4 05 23 PM" src="https://github.com/user-attachments/assets/cb473af8-2508-49c8-b889-cd0712b76337">
+
+3. Copy and paste your data from the roxie server into the correct places in your program to test it out. Once you run your program, the messages should be published into your BigQuery table.
+
+You have now successfully transferred data from the Roxie server into BigQuery with a Java program. I recommend using the Java program when you need to publish multiple rows of data. If you only need to transfer one row, manually inputing it in Pub/Sub works just fine (when it's multiple rows of messages, Pub/Sub might not let it happen so use the Java program instead).
+
+# Recommendations
+* If you want to transfer entire files of data, use method 1. If you are looking for a more flexible way of data transfer that can allow you to choose specific rows of data to transfer, use method 2.
+* Do the manual methods first and make sure they work before implementing an automation using a script/program.
+
+# Bonus: Data Analysis 
+So, the purpose of this documentation is to provide an effective method that would allow data that would allow data to transfer from HPCC Systems to BigQuery seamlessly. However, we are doing this because BigQuery offers a variety of functions that can be performed on data that cannot be done in HPCC Systems. To name a few, BigQuery can produce all types of charts and graphs, as well as visualizations with data in its warehouse.
+
+Read more here: https://cloud.google.com/bigquery/docs/query-overview.
+
+*Looker Studio Data Analysis
+
+(food info data)
+<img width="600" alt="Screenshot 2024-07-25 at 4 33 26 PM" src="https://github.com/user-attachments/assets/99a5f905-b31c-40b1-adef-a04c13f9e355">
+
+(properties data)
+<img width="612" alt="Screenshot 2024-07-25 at 4 37 35 PM" src="https://github.com/user-attachments/assets/8c49215a-8403-42fb-9cf5-db33e29d4002">
+
+
+
 
 
 
