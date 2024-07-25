@@ -107,12 +107,14 @@ Before transferring the data through messages, you first need to set up the sche
 2. Click into Pub/Sub.
 
 Your screen should look something like this:
+
 <img width="1271" alt="Screenshot 2024-07-25 at 2 44 29 PM" src="https://github.com/user-attachments/assets/ea1853e8-51f3-437a-bf48-fe75f4484ac1">
 
 3. Click on schemas and create a schema.
 4. Give your schema a name and keep the schema type default as Avro. For your schema definition, it should match your dataset/table schema.
 
 Here's an example of the schema I created:
+
 <img width="570" alt="Screenshot 2024-07-25 at 2 50 32 PM" src="https://github.com/user-attachments/assets/b06a06eb-1198-4f34-8e25-01bd48b8c1e5">
 
 5. After you write your schema definition, click create.
