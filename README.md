@@ -119,7 +119,36 @@ Here's an example of the schema I created:
 
 5. After you write your schema definition, click create.
 6. Now that you have a schema, go into topics and click create topic.
-7. 
+7. Give your topic a name and check the "Use a schema" box and also check the "Add a default subscription box".
+8. After checking "Use a schema" you will be asked to select a Pub/Sub schema. Select the schema you just created and leave everything else as default and click create.
+
+Your screen should look like this before clicking create:
+
+<img width="715" alt="Screenshot 2024-07-25 at 3 07 17 PM" src="https://github.com/user-attachments/assets/b5a10c6e-26f3-4d38-8122-d41801bf2816">
+
+9. After creating your topic, go into subscriptions.
+10. You should have a subscription created in there already. The delivery type for it should be pull. We will be creating another subscription to write to BigQuery. Click create subscription.
+11. Give a name to your subscription and select the Pub/Sub topic you just created when asked.
+12. For the delivery type, select "Write to BigQuery" and select the dataset and table that you created in BigQuery. Everything else can be left as default.
+
+Here's a screenshot of what your screen should look like:
+
+<img width="542" alt="Screenshot 2024-07-25 at 3 18 00 PM" src="https://github.com/user-attachments/assets/2e2a9c8a-2a92-44d8-8239-8b10571aac4b">
+
+13. Scroll to the bottom and click create.
+
+Your screen should look similar to this (with less subscriptions):
+
+<img width="1272" alt="Screenshot 2024-07-25 at 3 19 08 PM" src="https://github.com/user-attachments/assets/5e52f7c6-d372-44e4-8104-26e4249320eb">
+
+You have successfully set up the Pub/Sub messaging service.
+
+#### Publish Messages in Pub/Sub (manually) ####
+1. Click into the topic you just created and
+2. 
+
+
+
 (mention the service thingy in detail, show a screenshot of the json data output, explain the creation of the pub/sub parts like topic, schema, subscription, etc, separate heading with the java pub/sub messages)
 (show screenshots of the manually input messages and the java ones)
 
