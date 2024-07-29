@@ -1,5 +1,13 @@
 # Creating a data pipeline to move HPCC Systems data to BigQuery
-The goal of this repository is to provide a set of instructions, sample datasets, and code for creating a successful data transfer from HPCC Systems into BigQuery. The main priority is to find a simple, but effective method that would allow data to transfer from HPCC Systems to BigQuery seamlessly.
+The goal of this repository is to provide a set of instructions, sample datasets, and code for creating a successful data pipeline from HPCC Systems into BigQuery. The main priority is to find a simple, but effective method that would allow data to transfer from HPCC Systems to BigQuery seamlessly.
+
+# Introduction to Data Pipeline
+In computing, a data pipeline is an application designed to process data through a series of connected steps. Data pipelines are versatile and can be used for various tasks, such as transferring data between information systems, performing extract, transform, and load (ETL) operations, enriching data, and conducting real-time data analysis. They typically operate in two modes: batch processing, which runs and processes data in scheduled intervals, and streaming processing, which continuously processes data as it arrives.
+
+In the realm of data warehousing, data pipelines are often employed to read data from transactional systems, apply necessary transformations, and then load the data into the data warehouse. Each transformation is defined by a function, where the output of one function becomes the input for the next. These interconnected functions form a Directed Acyclic Graph (DAG), meaning the data flows in a single direction from source to destination without any cycles or loops. Each node in the DAG represents a function, while the edges denote the data flowing between these functions. The initial nodes (sources) connect to the source data systems, and the final nodes (sinks) connect to the destination data systems.
+
+In data pipeline terminology, sources typically refer to transactional systems like relational databases, and sinks refer to data warehouses. This arrangement is known as a data flow DAG. Additionally, DAGs can be used to orchestrate data movement between various pipelines and systems, known as orchestration or control flow DAGs.
+
 # Requirements
 * **HPCC Development:** Since this is an integration between HPCC Systems and BigQuery, you need to setup the HPCC development on a local machine. This can be done by following the steps in this documentation: https://cdn.hpccsystems.com/releases/CE-Candidate-9.8.4/docs/EN_US/Containerized_HPCC_Systems_Platform_EN_US-9.8.4-1.pdf (p7 - p14). After finishing the setup, check that ECL Watch is up and running.
   * **Docker Desktop and Helm:** These two applications are installed for the setup of the HPCC development. It is important to note that after Docker Desktop is installed, you need to go into settings and enable **Kubernetes**.
