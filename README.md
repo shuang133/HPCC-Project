@@ -38,6 +38,8 @@ Here's a snippet of the ECL script I wrote:
 3. Create a new bucket and create a folder inside the bucket
 4. Once inside the folder, click Upload Files and choose the file you desprayed into the landing zone (if you can't find it, try looking under a mydropzone or dropzone folder). After uploading, it should be in the bucket/folder.
 
+**Important:** If you are only uploading one data file as a one-time job/transfer, you can skip the next steps (upload with Java).
+
 ### Upload to Google Cloud Storage (Java) ###
 Although you can upload your file manually, using java or any language program can allow this process to be much more efficient when you need to upload multiple files.
 1. Create a new project in BigQuery
@@ -82,7 +84,7 @@ To get a better idea of where everything is laid out, here's a screenshot of the
 <img width="756" alt="Screenshot 2024-07-23 at 10 34 48 PM" src="https://github.com/user-attachments/assets/b75ad998-f449-4c83-be69-4c3d26f1c5e1">
 
 ### Transferring Data from Landing Zone ###
-(More time-consuming than from Roxie Server) 
+(**Important:** More time-consuming than from Roxie Server) 
 
 This isn't the main path taken when using the Pub/Sub Messaging Service as it is much more tedious than using data from the Roxie server. Briefly mentioning this, the overall process is using the desprayed file data and manually altering it into JSON format so that it follows the schema in Pub/Sub. Since this process takes a long time, especially when transferring multiple rows of data, I won't go into detail.
 
@@ -174,6 +176,8 @@ Your screen should look similar to this: (you can test out one row at a time fir
 
 You have now successfully transferred data from HPCC Systems (Roxie server) into BigQuery using the Pub/Sub messaging service.
 
+**Important:** If you are only publishing one message at a time or multiple messages, but not frequently, you can skip the next steps (publish messages with Java).
+
 ### Publish Messages in Pub/Sub (Automation using Java) ###
 1. Read over this Pub/Sub guide and reference the sample code to write your own program: https://cloud.google.com/pubsub/docs/publisher. (I used this to help write my Java program)
 2. If you decide to code in Java, here are a few snippets of my program (you can view the entire program under the Pub/Sub folder):
@@ -190,7 +194,7 @@ You have now successfully transferred data from the Roxie server into BigQuery w
 
 # Recommendations
 * If you want to transfer entire files of data, use method 1. If you are looking for a more flexible way of data transfer that can allow you to choose specific rows of data to transfer, use method 2.
-* Do the manual methods first and make sure they work before implementing an automation using a script/program.
+* If you are looking to implement an automatic data pipeline utilizing a script/program, work on the manual methods first and make sure they work before implementing an automation using a script/program.
 
 # Bonus: Data Analysis 
 So, the purpose of this documentation is to provide an effective method that would allow data that would allow data to transfer from HPCC Systems to BigQuery seamlessly. However, we are doing this because BigQuery offers a variety of functions that can be performed on data that cannot be done in HPCC Systems. To name a few, BigQuery can produce all types of charts and graphs, as well as visualizations with data in its warehouse.
