@@ -48,7 +48,7 @@ Although you can upload your file manually, using java or any language program c
 
 Here's a few snippets from my Java program (you can find the full program under the GCS_Code folder):
 
-<img width="1095" alt="Screenshot 2024-07-23 at 2 18 23 PM" src="https://github.com/user-attachments/assets/2c08ea8b-182a-4e11-82e0-9f90f9b914a2">
+<img width="1091" alt="Screenshot 2024-07-29 at 2 09 49 PM" src="https://github.com/user-attachments/assets/aa50287d-cf48-4de4-b62b-fc98ac93154a">
 
 <img width="908" alt="Screenshot 2024-07-23 at 2 18 41 PM" src="https://github.com/user-attachments/assets/df2e758e-e4c7-4ac3-936b-51318e461e53">
 
