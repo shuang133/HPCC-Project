@@ -20,7 +20,9 @@ In data pipeline terminology, sources typically refer to transactional systems l
 1. Enter your ECL Watch. Go to files and then logical files. If you have logical files, you may skip this step. If you don't have any logical files, you need to click on Landing Zones and press Upload. From there, upload a csv file (you can export an excel file as csv). After it's uploaded, import it to logical files and rename the filename (for organization purposes).
 2. After you have at least 1 file under logical files, choose a file you want to despray and click despray.
 3. Check in the workunits to make sure your despray went through. Once it says complete, click on Landing Zones and your desprayed file should be there.
-** Important: ** If you are only transferring one data file as a one-time job, you can skip the next steps (despray with ECL code).
+
+**Important:** If you are only transferring one data file as a one-time job, you can skip the next steps (despray with ECL code).
+
 ### Steps to Despray (ECL Code) ###
 To despray a file from logical files into landing zone with an ECL script, you must first have files to despray.
 1. Enter your ECL Watch. Go to files and then logical files. If you have already have a superfile with files in it, you may skip this step. If you don't, create a superfile. From there, go into the landing zone and upload a csv file (you can export an excel file as csv). After it's uploaded, import it to logical files, rename the filename, and add it to your newly created superfile.
