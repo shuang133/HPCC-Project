@@ -1,12 +1,16 @@
 # Creating a data pipeline to move HPCC Systems data to BigQuery
-The goal of this repository is to provide a set of instructions, sample datasets, and code for creating a successful data pipeline from HPCC Systems into BigQuery. The main priority is to find a simple, but effective method that would allow data to transfer from HPCC Systems to BigQuery seamlessly.
+The goal of this repository is to provide a set of instructions, sample datasets, and code for creating a successful data pipeline from HPCC Systems into BigQuery for data analysis. The main priority is to find a simple, but effective method that would allow data to transfer from HPCC Systems to BigQuery seamlessly.
 
-# Introduction to Data Pipeline
+# Introduction
+
+## Data Pipeline
 In computing, a data pipeline is an application designed to process data through a series of connected steps. Data pipelines are versatile and can be used for various tasks, such as transferring data between information systems, performing extract, transform, and load (ETL) operations, enriching data, and conducting real-time data analysis. They typically operate in two modes: batch processing, which runs and processes data in scheduled intervals, and streaming processing, which continuously processes data as it arrives.
 
-In the realm of data warehousing, data pipelines are often employed to read data from transactional systems, apply necessary transformations, and then load the data into the data warehouse. Each transformation is defined by a function, where the output of one function becomes the input for the next. These interconnected functions form a Directed Acyclic Graph (DAG), meaning the data flows in a single direction from source to destination without any cycles or loops. Each node in the DAG represents a function, while the edges denote the data flowing between these functions. The initial nodes (sources) connect to the source data systems, and the final nodes (sinks) connect to the destination data systems.
+## HPCC Systems
+HPCC Systems is an open-source data platform developed by LexisNexis Risk Solutions, designed for efficient big data processing and analytics. It features two main components: the Thor Data Refinery Cluster for batch processing and the Roxie Rapid Data Delivery Cluster for real-time querying. Using the declarative Enterprise Control Language (ECL), HPCC simplifies complex data workflows, enhancing development speed and efficiency. Adaptable to both on-premises and cloud deployments, HPCC Systems integrates seamlessly with various data sources, making it a versatile tool for diverse data environments and enabling organizations to unlock valuable insights from their big data.
 
-In data pipeline terminology, sources typically refer to transactional systems like relational databases, and sinks refer to data warehouses. This arrangement is known as a data flow DAG. Additionally, DAGs can be used to orchestrate data movement between various pipelines and systems, known as orchestration or control flow DAGs.
+## BigQuery
+BigQuery is a fully-managed, serverless data warehouse provided by Google Cloud, designed for scalable and fast SQL analytics. It enables users to run complex queries on large datasets quickly and efficiently, leveraging the power of Google's infrastructure. BigQuery supports real-time data analysis and offers features like built-in machine learning, automatic scaling, and high availability. With its pay-as-you-go pricing model, it provides cost-effective data processing and storage solutions. BigQuery's integration with other Google Cloud services and its support for standard SQL make it an accessible and powerful tool for data analysts and engineers.
 
 # Requirements
 * **HPCC Development:** Since this is an integration between HPCC Systems and BigQuery, you need to setup the HPCC development on a local machine. This can be done by following the steps in this documentation: https://cdn.hpccsystems.com/releases/CE-Candidate-9.8.4/docs/EN_US/Containerized_HPCC_Systems_Platform_EN_US-9.8.4-1.pdf (p7 - p14). After finishing the setup, check that ECL Watch is up and running.
