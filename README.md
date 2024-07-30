@@ -1,10 +1,10 @@
 # Creating a data pipeline to move HPCC Systems data to BigQuery
-The goal of this repository is to provide a set of instructions, sample datasets, and code for creating a successful data pipeline from HPCC Systems into BigQuery for data analysis. The main priority is to find a simple, but effective method that would allow data to transfer from HPCC Systems to BigQuery seamlessly.
+The goal of this repository is to provide a set of instructions, sample datasets, and code for creating a successful data pipeline from HPCC Systems into BigQuery for business intelligence and data analysis. The main priority is to find a simple, but effective method that would allow data to transfer from HPCC Systems to BigQuery seamlessly.
 
 # Introduction
 
 ## Data Pipeline
-In computing, a data pipeline is an application designed to process data through a series of connected steps. Data pipelines are versatile and can be used for various tasks, such as transferring data between information systems, performing extract, transform, and load (ETL) operations, enriching data, and conducting real-time data analysis. They typically operate in two modes: batch processing, which runs and processes data in scheduled intervals, and streaming processing, which continuously processes data as it arrives.
+In computing, a data pipeline is an application designed to process data through a series of connected steps. The purpose of a data pipeline is to transfer data from sources, such as business processes, event tracking systems, and data banks, into a data warehouse for business intelligence and analytics. Data pipelines are versatile and can be used for various tasks, such as transferring data between information systems, performing extract, transform, and load (ETL) operations, enriching data, and conducting real-time data analysis. They typically operate in two modes: batch processing, which runs and processes data in scheduled intervals, and streaming processing, which continuously processes data as it arrives.
 
 ## HPCC Systems
 HPCC Systems is an open-source data platform developed by LexisNexis Risk Solutions, designed for efficient big data processing and analytics. It features two main components: the Thor Data Refinery Cluster for batch processing and the Roxie Rapid Data Delivery Cluster for real-time querying. Using the declarative Enterprise Control Language (ECL), HPCC simplifies complex data workflows, enhancing development speed and efficiency. Adaptable to both on-premises and cloud deployments, HPCC Systems integrates seamlessly with various data sources, making it a versatile tool for diverse data environments and enabling organizations to unlock valuable insights from their big data.
@@ -93,7 +93,7 @@ To get a better idea of where everything is laid out, here's a screenshot of the
 This isn't the main path taken when using the Pub/Sub Messaging Service as it is much more tedious than using data from the Roxie server. Briefly mentioning this, the overall process is using the desprayed file data and manually altering it into JSON format so that it follows the schema in Pub/Sub. Since this process takes a long time, especially when transferring multiple rows of data, I won't go into detail.
 
 ### Transferring Data from Roxie Server ###
-A quick overview of this method is that on the Roxie Server, there is a specific service that can be used to output JSON-formatted data. Since the Pub/Sub messaging service requires the messages to be in JSON format, it is much more efficient to utilize Roxie so that you can copy and past the data instead of rewriting it into JSON format. A more detailed step by step explanation of the entire process is below.
+A quick overview of this method is that on the Roxie Server, there is a specific service that can be used to output JSON-formatted data. Since the Pub/Sub messaging service requires the messages to be in JSON format, it is much more efficient to utilize Roxie so that you can copy and paste the data instead of rewriting it into JSON format. A more detailed step by step explanation of the entire process is below.
 
 #### Gathering JSON-formatted Data from Roxie Server ####
 1. Click on this link and login with your username and password for your HPCC Systems cluster: http://university-roxie.us-hpccsystems-dev.azure.lnrsg.io:8002/esp/files/Login.html.
