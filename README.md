@@ -162,16 +162,18 @@ You have now successfully transferred data from HPCC Systems (Landing Zone) into
 
 ### Publish Messages in Pub/Sub (Automation using Java) ###
 1. Read over this Pub/Sub guide and reference the sample code to write your own program: https://cloud.google.com/pubsub/docs/publisher. (I used this to help write my Java program)
-This website is also a good reference for converting a csv file into JSON:
 
+This website is also a good reference for converting a csv file into JSON:
+https://mkyong.com/java/how-do-convert-java-object-to-from-json-format-gson-api/.
 
 3. If you decide to code in Java, here are a few snippets of my program (you can view the entire program under the Pub/Sub folder):
 
-<img width="885" alt="Screenshot 2024-07-25 at 4 04 51 PM" src="https://github.com/user-attachments/assets/4e1f9a95-a310-4d21-9b6f-7ef65c3acca0">
+<img width="795" alt="Screenshot 2024-08-05 at 11 57 41 AM" src="https://github.com/user-attachments/assets/2b8c223d-7796-48df-a44f-da762bd54425">
 
-<img width="892" alt="Screenshot 2024-07-25 at 4 05 04 PM" src="https://github.com/user-attachments/assets/a65a0485-cfff-481a-aef2-8219ea41562c">
+<img width="898" alt="Screenshot 2024-08-05 at 11 58 54 AM" src="https://github.com/user-attachments/assets/01560285-5992-4db8-bc81-65e29a2f2d86">
 
-<img width="907" alt="Screenshot 2024-07-25 at 4 05 23 PM" src="https://github.com/user-attachments/assets/cb473af8-2508-49c8-b889-cd0712b76337">
+<img width="733" alt="Screenshot 2024-08-05 at 11 59 06 AM" src="https://github.com/user-attachments/assets/d9472aef-2d5a-496c-9c29-5e1ee879e53a">
+
 
 3. Enter your project id/name, topic id/name, and also the filepath of the desprayed file in ECL Watch into the correct places in your program to test it out. Once you run your program, the messages should be published into your BigQuery table.
 
