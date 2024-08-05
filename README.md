@@ -18,7 +18,7 @@ BigQuery is a fully-managed, serverless data warehouse provided by Google Cloud,
 * **VSCode/ECL IDE:** VSCode/ECL IDE needs to be installed in order to write/run code. It is also a good idea to complete the HPCC Systems Data Tutorial if this is your first time working with HPCC Systems. Data Tutorial: https://cdn.hpccsystems.com/releases/CE-Candidate-9.8.4/docs/EN_US/HPCCDataTutorial_EN_US-9.8.4-1.pdf (VSCode/ECL IDE needed)
 * **Google Cloud Platform Account:** A GCP Account needs to be created as you will need to utilize the different warehouses and services provided by Google Cloud Platform such as BigQuery and Pub/Sub.
 # Method 1: BigQuery/Data Transfer Service
-<img width="498" alt="Screenshot 2024-08-05 at 11 22 54 AM" src="https://github.com/user-attachments/assets/ff230820-9cce-4846-a90d-faed547822fd">
+<img width="700" alt="Screenshot 2024-08-05 at 11 22 54 AM" src="https://github.com/user-attachments/assets/ff230820-9cce-4846-a90d-faed547822fd">
 
 ### Steps to Despray (Manually) ###
 1. Enter your ECL Watch. Go to files and then logical files. If you have logical files, you may skip this step. If you don't have any logical files, you need to click on Landing Zones and press Upload. From there, upload a csv file (you can export an excel file as csv). After it's uploaded, import it to logical files and rename the filename (for organization purposes).
@@ -204,4 +204,6 @@ Read more here: https://cloud.google.com/bigquery/docs/query-overview.
 
 
 (template report)
+
 <img width="404" alt="Screenshot 2024-08-05 at 11 07 23 AM" src="https://github.com/user-attachments/assets/1a04d93b-7e49-41b2-88ca-e632bfcda68a">
+
