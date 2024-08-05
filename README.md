@@ -18,7 +18,7 @@ BigQuery is a fully-managed, serverless data warehouse provided by Google Cloud,
 * **VSCode/ECL IDE:** VSCode/ECL IDE needs to be installed in order to write/run code. It is also a good idea to complete the HPCC Systems Data Tutorial if this is your first time working with HPCC Systems. Data Tutorial: https://cdn.hpccsystems.com/releases/CE-Candidate-9.8.4/docs/EN_US/HPCCDataTutorial_EN_US-9.8.4-1.pdf (VSCode/ECL IDE needed)
 * **Google Cloud Platform Account:** A GCP Account needs to be created as you will need to utilize the different warehouses and services provided by Google Cloud Platform such as BigQuery and Pub/Sub.
 # Method 1: BigQuery/Data Transfer Service
-<img width="724" alt="Screenshot 2024-07-22 at 8 48 10 PM" src="https://github.com/user-attachments/assets/e865f2d1-ab1a-4230-88f3-abc07089117e">
+<img width="498" alt="Screenshot 2024-08-05 at 11 22 54 AM" src="https://github.com/user-attachments/assets/ff230820-9cce-4846-a90d-faed547822fd">
 
 ### Steps to Despray (Manually) ###
 1. Enter your ECL Watch. Go to files and then logical files. If you have logical files, you may skip this step. If you don't have any logical files, you need to click on Landing Zones and press Upload. From there, upload a csv file (you can export an excel file as csv). After it's uploaded, import it to logical files and rename the filename (for organization purposes).
@@ -85,39 +85,17 @@ To get a better idea of where everything is laid out, here's a screenshot of the
 17. Scroll to the bottom and click save. Once you wait for the first data transfer run to be successfully completed, Method 1 of the data transfer is complete.
 
 # Method 2: Pub/Sub Messaging Service
-<img width="756" alt="Screenshot 2024-07-23 at 10 34 48 PM" src="https://github.com/user-attachments/assets/b75ad998-f449-4c83-be69-4c3d26f1c5e1">
+<img width="478" alt="Screenshot 2024-08-05 at 11 23 26 AM" src="https://github.com/user-attachments/assets/e39422c0-05ec-4f2d-8419-119e177d6a20">
 
-### Transferring Data from Landing Zone ###
-(**Important:** More time-consuming than from Roxie Server) 
+### Transferring Data from Landing Zone (manually) ###
+(**Important:** Only use this process if you want to select specific rows/lines of data from your dataset/file) 
 
-This isn't the main path taken when using the Pub/Sub Messaging Service as it is much more tedious than using data from the Roxie server. Briefly mentioning this, the overall process is using the desprayed file data and manually altering it into JSON format so that it follows the schema in Pub/Sub. Since this process takes a long time, especially when transferring multiple rows of data, I won't go into detail.
+This isn't the main path taken when using the Pub/Sub Messaging Service as it is much more tedious than using a program to convert your csv file into JSON. Briefly mentioning this, the overall process is using the desprayed file data and manually converting it into JSON format so that it follows the schema in Pub/Sub. Since this process takes a long time, especially when transferring multiple rows of data, I won't go into detail.
 
-### Transferring Data from Roxie Server ###
-A quick overview of this method is that on the Roxie Server, there is a specific service that can be used to output JSON-formatted data. Since the Pub/Sub messaging service requires the messages to be in JSON format, it is much more efficient to utilize Roxie so that you can copy and paste the data instead of rewriting it into JSON format. A more detailed step by step explanation of the entire process is below.
-
-#### Gathering JSON-formatted Data from Roxie Server ####
-1. Click on this link and login with your username and password for your HPCC Systems cluster: http://university-roxie.us-hpccsystems-dev.azure.lnrsg.io:8002/esp/files/Login.html.
-2. Once inside the system, click on the plus sign in front of roxie.
-3. Scroll down and click on "personsfilesearchservicevz".
-4. You may enter any first name or last name you want to retrieve data, but make sure to capitalize every letter. Ex: SMITH
-<img width="1270" alt="Screenshot 2024-07-24 at 5 44 37 PM" src="https://github.com/user-attachments/assets/a11890a2-83c2-44f8-b975-374c88ce450c">
-
-5. Click submit.
-6. A data table should be produced. Below is an example after entering SMITH in the lastname box:
-<img width="1271" alt="Screenshot 2024-07-24 at 5 46 37 PM" src="https://github.com/user-attachments/assets/756eb5a4-cfa5-4d13-ac41-3ff27e05adf9">
-
-7. Click on Links (next to Form). You should see something similar to this:
-<img width="1267" alt="Screenshot 2024-07-24 at 5 48 37 PM" src="https://github.com/user-attachments/assets/d0c3f250-186f-46d9-8127-15f129ef539b">
-
-8. Go down to JSON (Post JSON messages to this URL) and click /WsEcl/json/query/roxie/personsfilesearchservicevz. (for future reference, a faster way to get to that specific site is using this link: http://university-roxie.us-hpccsystems-dev.azure.lnrsg.io:8002/WsEcl/forms/json/query/roxie/personsfilesearchservicevz)
-9. Now enter something for either firstname, lastname, sex, or zip (make sure to put quotes between strings). Then, press send request. Here's an example of what you might see:
-<img width="1273" alt="Screenshot 2024-07-24 at 6 12 21 PM" src="https://github.com/user-attachments/assets/c3b6a36d-2b7a-4184-ad18-202ad8c55000">
-
-You have now retrieved JSON-formatted data from the Roxie Server.
+### Transferring Data from Landing Zone (Java) ###
+A quick overview of this method is that it doesn't require any manual work and the entire file will be transferred. The general process is converting the csv file into JSON using a reader that goes through the data line by line. Then, the JSON formatted data is loaded into Pub/Sub as messages and is published into the BigQuery table. A more detailed step by step explanation of the entire process is below.
 
 ### Using Pub/Sub Messaging Service ###
-Now you might think that all you need to do is copy the data from roxie into pub/sub, but it's not quite that simple (sorry).
-
 Before transferring the data through messages, you first need to set up the schema, topic, and subscriptions in Pub/Sub by following these steps:
 
 1. Go into your BigQuery project and create an empty table under the dataset you created with a schema that matches the data you will use (you should have two tables under that dataset now).
@@ -169,7 +147,7 @@ Your screen should look similar to this:
 
 <img width="797" alt="Screenshot 2024-07-25 at 3 41 34 PM" src="https://github.com/user-attachments/assets/b660ff17-5145-4f93-a82b-f6bbcf817d42">
 
-3. Copy the JSON-formatted data from the roxie server and paste it in the message body.
+3. Write the data from the file you want to transfer (in JSON format) in the message body
 
 Your screen should look similar to this: (you can test out one row at a time first) 
 
@@ -178,13 +156,16 @@ Your screen should look similar to this: (you can test out one row at a time fir
 4. Click publish.
 5. Now when you check the empty table you created, it should contain the message you just published.
 
-You have now successfully transferred data from HPCC Systems (Roxie server) into BigQuery using the Pub/Sub messaging service.
+You have now successfully transferred data from HPCC Systems (Landing Zone) into BigQuery using the Pub/Sub messaging service.
 
-**Important:** If you are only publishing one message at a time or multiple messages, but not frequently, you can skip the next steps (publish messages with Java).
+**Important:** If you are only publishing one message at a time or multiple messages, but not frequently or entire files, you can skip the next steps (publish messages with Java).
 
 ### Publish Messages in Pub/Sub (Automation using Java) ###
 1. Read over this Pub/Sub guide and reference the sample code to write your own program: https://cloud.google.com/pubsub/docs/publisher. (I used this to help write my Java program)
-2. If you decide to code in Java, here are a few snippets of my program (you can view the entire program under the Pub/Sub folder):
+This website is also a good reference for converting a csv file into JSON:
+
+
+3. If you decide to code in Java, here are a few snippets of my program (you can view the entire program under the Pub/Sub folder):
 
 <img width="885" alt="Screenshot 2024-07-25 at 4 04 51 PM" src="https://github.com/user-attachments/assets/4e1f9a95-a310-4d21-9b6f-7ef65c3acca0">
 
@@ -192,16 +173,16 @@ You have now successfully transferred data from HPCC Systems (Roxie server) into
 
 <img width="907" alt="Screenshot 2024-07-25 at 4 05 23 PM" src="https://github.com/user-attachments/assets/cb473af8-2508-49c8-b889-cd0712b76337">
 
-3. Copy and paste your data from the roxie server into the correct places in your program to test it out. Once you run your program, the messages should be published into your BigQuery table.
+3. Enter your project id/name, topic id/name, and also the filepath of the desprayed file in ECL Watch into the correct places in your program to test it out. Once you run your program, the messages should be published into your BigQuery table.
 
-You have now successfully transferred data from the Roxie server into BigQuery with a Java program. I recommend using the Java program when you need to publish multiple rows of data. If you only need to transfer one row, manually inputing it in Pub/Sub works just fine (when it's multiple rows of messages, Pub/Sub might not let it happen so use the Java program instead).
+You have now successfully transferred an entire dataset/file from HPCC Systems (Landing Zone) into BigQuery with a Java program. If you only need to transfer one row, manually inputing it in Pub/Sub works just fine.
 
 # Recommendations
-* If you want to transfer entire files of data, use method 1. If you are looking for a more flexible way of data transfer that can allow you to choose specific rows of data to transfer, use method 2.
+* If you want to transfer entire files of data, use method 1 or the automation process for method 2. If you are looking for a more flexible way of data transfer that can allow you to choose specific rows of data to transfer, use the manual process for method 2.
 * If you are looking to implement an automatic data pipeline utilizing a script/program, work on the manual methods first and make sure they work before implementing an automation using a script/program.
 
 # Bonus: Data Analysis 
-So, the purpose of this documentation is to provide an effective method that would allow data that would allow data to transfer from HPCC Systems to BigQuery seamlessly. However, we are doing this because BigQuery offers a variety of functions that can be performed on data that cannot be done in HPCC Systems. To name a few, BigQuery can produce all types of charts and graphs, as well as visualizations with data in its warehouse.
+So, the purpose of this documentation is to provide an effective method that would allow data that would allow data to transfer from HPCC Systems to BigQuery seamlessly. However, we are doing this because BigQuery offers a variety of functions that can be performed on data that cannot be done in HPCC Systems. To name a few, BigQuery can produce complex and dynamic charts and graphs, as well as visualizations with data in its warehouse.
 
 Read more here: https://cloud.google.com/bigquery/docs/query-overview.
 
@@ -217,3 +198,8 @@ Read more here: https://cloud.google.com/bigquery/docs/query-overview.
 (properties data)
 
 <img width="612" alt="Screenshot 2024-07-25 at 4 37 35 PM" src="https://github.com/user-attachments/assets/8c49215a-8403-42fb-9cf5-db33e29d4002">
+
+
+
+(template report)
+<img width="404" alt="Screenshot 2024-08-05 at 11 07 23 AM" src="https://github.com/user-attachments/assets/1a04d93b-7e49-41b2-88ca-e632bfcda68a">
