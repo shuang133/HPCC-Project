@@ -85,7 +85,7 @@ To get a better idea of where everything is laid out, here's a screenshot of the
 17. Scroll to the bottom and click save. Once you wait for the first data transfer run to be successfully completed, Method 1 of the data transfer is complete.
 
 # Method 2: Pub/Sub Messaging Service
-<img width="478" alt="Screenshot 2024-08-05 at 11 23 26 AM" src="https://github.com/user-attachments/assets/e39422c0-05ec-4f2d-8419-119e177d6a20">
+<img width="700" alt="Screenshot 2024-08-05 at 11 23 26 AM" src="https://github.com/user-attachments/assets/e39422c0-05ec-4f2d-8419-119e177d6a20">
 
 ### Transferring Data from Landing Zone (manually) ###
 (**Important:** Only use this process if you want to select specific rows/lines of data from your dataset/file) 
